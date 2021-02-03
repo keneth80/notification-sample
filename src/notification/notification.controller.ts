@@ -25,18 +25,7 @@ export class NotificationController {
 
     @Post(':applicationMakerName')
     async create(@Param() param, @Body() req: any, @Res() res: Response) {
-        console.log('param : ', param);
-        fs.writeFile(
-            '/event/' + getTimeToString() + '.json',
-            JSON.stringify(req),
-            (error) => {
-                if (error) {
-                    console.log('Error ==>', error);
-                } else {
-                    console.log('complete');
-                }
-            }
-        );
+        console.log('param : ', req);
         if (!param.applicationMakerName) {
             res.status(HttpStatus.NOT_IMPLEMENTED).send();
         } else {
